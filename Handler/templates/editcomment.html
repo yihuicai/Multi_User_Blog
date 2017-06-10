@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> Edit Comment to {{ original_post.title }}</h1>
+<div class="orignal">
+    <h3>{{ original_post.title }}</h3>
+    <p> {{ original_post.text }} </p>
+</div>
+
+<form method="post">
+
+	<label>
+	    <h3>Comment: </h3>
+	    <p>Old Text: {{ old_text }}</p>
+	    <h4> New Text:</h4>
+	    <textarea name="text" value={{ old_text }}></textarea>
+	</label>
+	<input type="submit">
+</form>
+<div class="error">
+	   	<p style="color: red">{{ error }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="display_blog">
+	    {% if messages: %}
+		<div class="blog">
+		    <div class="blog headline">
+		        <h2 class="display_title">{{ messages.title }}</h2>
+		        <h3 class="author">Author: {{ messages.author }}</h3>
+
+		        <div class="like">
+		            <p> liked by: {{ messages.likes }}</p>
+		        </div>
+		        <p class="display_date">{{ messages.created }}</p>
+		        <p class="id">{{ messages.key().id() }}</p>
+
+		    </div>
+		    <div class="display_text">{{ messages.text }}</div>
+		    <div class="comments">
+		        {% if comments[messages.key().id()] %}
+		        <h3>Comment:</h3>
+		    	{% for b in comments[messages.key().id()]: %}
+		    	<h4 class="comment title">{{ b.commenter }}</h4>
+		    	<h4 class="comment time">{{ b.created }}</h4>
+		    	<p class="comment text">{{ b.text }}</p>
+		    	{% endfor %}
+		    	{% endif %}
+		    </div>
+		    <a href="/blog/newcomment/{{ messages.key().id() }}" class="new_comment">Add New Comment</a>
+		</div>
+		{% endif %}
+	</div>
+{% endblock %}

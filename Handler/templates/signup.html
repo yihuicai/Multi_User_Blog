@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2> Welcome! Please Sign up</h2>
+
+<form method="post">
+<div>Username:
+<input type="text" name="username" value="{{oldname}}"></div>
+<p class="error1" style="color: red;">{{ error1 }}</p>
+
+
+<div>Password:
+<input type="password" name="password" value=""></div>
+<p class="error2" style="color: red;">{{ error2 }}</p>
+
+<div>Confirmed Password:
+<input type="password" name="verify"></div>
+<br/>
+
+<div>Email(optional):
+<input type="text" name="email" value="{{oldemail}}"></div>
+
+<p class="error3" style="color: red;">{{ error3 }}</p>
+<input type="submit" >
+</form>
+{% endblock %}

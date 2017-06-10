@@ -1,0 +1,127 @@
+body {
+	display: inline-flex;
+	flex-wrap: wrap;
+	font-family: "Lato", serif;
+	font-weight: 300;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+header {
+	width: 100%;
+	display: inline-flex;
+	flex-wrap: wrap;
+	border-bottom: solid 0.5em grey;
+}
+
+.profile {
+	width: 20%;
+	display: block;
+	text-align: right;
+	margin: 5px 10px;
+	border: solid 1px grey;
+	border-radius: 10px;
+}
+
+img {
+	width: 70px;
+	max-width: 20%;
+	height: 60px;
+	margin: 5px auto 5px 10px;
+	display: block;
+}
+
+.title {
+	display: block;
+	width: 50%;
+	margin:20px auto;
+	text-align: center;
+}
+
+.user {
+	display: block;
+	width: 100%;
+	margin: 5px auto;
+	text-align: center;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin: auto;
+	width: 100%;
+}
+
+main {
+	width: 100%;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.display_blog {
+	border: solid 1px grey;
+
+}
+.blog {
+	border: solid 1px grey;
+	padding: 5px;
+	margin: 10px;
+	width: 650px;
+	max-width: calc( (100% - 66px) / 2 );
+	display: block;
+}
+.edit {
+	padding-left: 0;
+	padding-right: 5px;
+	display: block;
+}
+.like {
+	width: 50%;
+	display: block;
+}
+.section_title {
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+.display_title {
+	text-align: center;
+	width: 100%;
+	display: block;
+}
+.display {
+	border: solid 0.5px grey;
+	padding: 5px;
+}
+.display_date {
+	font-size: 0.7em;
+}
+.display_text {
+	font-size: 1.2em;
+	font-weight: 500;
+}
+.comment_text{
+	font-size: 0.8em;
+	display: block;
+}
+
+.author {
+	text-align: left;
+	width: 20%;
+	display: block;
+	color: grey;
+}
+
+.t {
+	width: 100%;
+	text-align: center;
+}
+
+.comments {
+	border: solid 0.5px grey;
+	margin: 5px 0;
+	padding: 5px;
+}
