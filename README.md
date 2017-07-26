@@ -1,5 +1,7 @@
 # Multi User Blog
 
+**New Feature** (2017.7.25): UI has been remade! ​:sparkler:​
+
 ### 1. How to use the file:
 
   a. Download Google App Engine SDK.
