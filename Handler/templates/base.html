@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Alan's PTT</title>
+    <title>Alan's PTT V2</title>
     <meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500" rel="stylesheet">
-	<link href="static/css/style.css"  rel="stylesheet" type="text/css">
+	<link href="/static/css/style.css"  rel="stylesheet" type="text/css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <header>
-        <img src="static/image/logo.jpg" alt="logo">
+        <img src="/static/image/logo.jpg" alt="logo">
     	<h2 class="title">Alan's PTT</h2>
         <div class="profile">
-    	<h3 class="user"> welcome, {{ user }} </h3>
-        {% if user=="guest" or user=="" %}
-           <div class="links">
-    	   <a href="/blog/login">Login</a>
-           <a href="/blog/signup">Signup</a>
-           </div>
-    	   {% else %}
-    	   <a href="/blog/logout">Logout</a>
-        {% endif %}
+    	    <h3 class="user"> welcome, {{ user }} </h3>
+            {% if user=="guest" or user=="" %}
+            <div class="links">
+    	       <a href="/blog/login" class="link">Login</a>
+               <a href="/blog/signup" class="link">Signup</a>
+            </div>
+    	    {% else %}
+    	    <a href="/blog/logout" class="link">Logout</a>
+            {% endif %}
         </div>
     </header>
     <main>

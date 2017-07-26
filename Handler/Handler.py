@@ -34,9 +34,7 @@ class Handler(webapp2.RequestHandler):
             #messages=db.GqlQuery("SELECT * FROM Message ORDER BY created DESC LIMIT 10")
 
         #self.render("result.html",  user=user, messages=messages )
-    def init_account(self):
-        init=Account(username=" ", password=" ", email=" ")
-        init.put()
+
     def init_comment(self):
         init=Comment(blog_id=" ", commenter=" ", text=" ")
         init.put()
@@ -60,13 +58,13 @@ class Handler(webapp2.RequestHandler):
     
     def auth(self, name, pw, user):
         pw1=user.password.split("-")[0]
-        if pw1!=user.password:
-            salt=user.password.split("-")[1]
-            pw2=hashlib.sha256(name+pw+salt).hexdigest()
-            if pw2==pw1:
-                return True
-        else:
+        if pw1==" ":
             return False
+        salt=user.password.split("-")[1]
+        pw2=hashlib.sha256(name+pw+salt).hexdigest()
+        if pw2==pw1:
+            return True
+        return False
         
     def set_cookie(self, u, p):
         cookie=self.make_pw_hash(u,p)

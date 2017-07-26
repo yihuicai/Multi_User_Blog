@@ -27,7 +27,9 @@ class AllBlogPage(Handler):
         Delete_c = self.request.get_all("delete_c")
         for delete in Delete_c:
             entity=Comment.get_by_id(int(delete))
-            if user==entity.commenter:
+            if not entity:
+                error="Error: No comment to be deleted!"
+            elif user==entity.commenter:
                 entity.delete()
             else:
                 error="Error: You can't delete others' post!"
@@ -35,7 +37,9 @@ class AllBlogPage(Handler):
         Delete = self.request.get_all("delete")
         for delete in Delete:
             entity=Message.get_by_id(int(delete))
-            if user==entity.author:
+            if not entity:
+                error="Error: No blog to be deleted!"
+            elif user==entity.author:
                 entity.delete()
             else:
                 error="Error: You can't delete others' post!"

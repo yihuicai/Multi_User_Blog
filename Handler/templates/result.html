@@ -2,50 +2,50 @@
 
 {% block content %}
     <a href="blog/newpost">Click to add new post</a>
+    {% if error %}
     <h4 style="color: red">{{ error }}</h4>
+    {% endif %}
 	<div class="display_blog row">
 	    {% if messages: %}
-		{% for a in messages: %}
+		{% for message in messages: %}
 		<div class="blog">
-		    <h3 class="display_title row">{{ a.title }}</h3>
-		    <h4 class="author t row">Author: {{ a.author }}</h4>
-		    <h4 class="section_title"> liked by: {{ a.likes }}</h4>
+		    <div class="blog">
+		    	<h2 class="display_title">{{ message.title }}</h3>
+		    	<h4 class="author">Author: {{ message.author }}</h4>
+		    	<h4 class="author"> liked by: {{ message.likes }}</h4>
+		    </div>
 		    <div class="display">
-		        <p class="display_text">{{ a.text }}</p>
-		        <p class="display_date">{{ a.created }}</p>
+		        <p class="display_text">{{ message.text }}</p>
+		        <p class="display_date">{{ message.created }}</p>
 		        <div class="row">
 		            <form method="get" class="edit">
-		                <button type="submit" class="editit" formaction="blog/edit/{{ a.key().id() }}">edit</button>
+		                <button type="submit" class="editit" formaction="blog/edit/{{ message.key().id() }}">edit</button>
 		            </form>
 		            <form method="post" class="like">
-		                <button type="submit" class="likeit" name="like" formaction="/blog" value="{{ a.key().id() }}">like</button>
-		                <button type="submit" class="deleteit" name="delete" formaction="/blog" value="{{ a.key().id() }}">delete</button>
+		                <button type="submit" class="likeit" name="like" formaction="/blog" value="{{ message.key().id() }}">like</button>
+		                <button type="submit" class="deleteit" name="delete" formaction="/blog" value="{{ message.key().id() }}">delete</button>
 		            </form>
 		        </div>
-
-		    </div>
-		    
+		    </div>  
+		</div>
+		<div class="comments">
 		    <h4 class="section_title">Comment:</h4>
-		    <div class="comments">
-		        {% if comments[a.key().id()]: %}
-		    	{% for b in comments[a.key().id()]: %}
-		    	<div class="row">
-		    	<p class="comment_text">{{ b.commenter }}: &nbsp;</p>
-		    	<p class="comment_text">{{ b.text }}</p>
-		    	</div>
-		    	<p class="display_date">{{ b.created }}</p>
-		    	<div class="row">
+		    {% for comment in comments[message.key().id()]: %}
+		    <div class="row">
+		    	<p class="comment_text">{{ comment.commenter }}: &nbsp;</p>
+		    	<p class="comment_text">{{ comment.text }}</p>
+		    </div>
+		    <p class="display_date">{{ comment.created }}</p>
+		    <div class="row">
 		    	<form method="get">
-		    	<button type="submit" class="editit" formaction="blog/editcomment/{{ b.key().id() }}">edit</button>
+		    		<button type="submit" class="editit" formaction="blog/editcomment/{{ comment.key().id() }}">edit</button>
 		    	</form>
 		    	<form method="post">
-		    	<button type="submit" class="deletecomment" formaction="/blog" name="delete_c" value="{{ b.key().id() }}">delete</button>
+		    		<button type="submit" class="deletecomment" formaction="/blog" name="delete_c" value="{{ comment.key().id() }}">delete</button>
 		    	</form>
-		    	</div>
-		    	{% endfor %}
-		    	{% endif %}
 		    </div>
-		    <a href="/blog/newcomment/{{ a.key().id() }}" class="new_comment">Add New Comment</a>
+		    	{% endfor %}
+		    <a href="/blog/newcomment/{{ message.key().id() }}">Add New Comment</a>
 		</div>
 		{% endfor %}
 		{% endif %}

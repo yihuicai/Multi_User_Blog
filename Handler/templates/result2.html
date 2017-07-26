@@ -5,25 +5,25 @@
 	<div class="display_blog">
 	    {% if messages: %}
 		<div class="blog">
-		    <div class="blog headline">
+		    <div class="blog">
 		        <h2 class="display_title">{{ messages.title }}</h2>
-		        <h3 class="author">Author: {{ messages.author }}</h3>
-
-		        <div class="like">
-		            <p> liked by: {{ messages.likes }}</p>
-		        </div>
-		        <p class="display_date">{{ messages.created }}</p>
-		        <p class="id">{{ messages.key().id() }}</p>
-
+		        <h4 class="author">Author: {{ messages.author }}</h4>
+		        <h4 class="author"> liked by: {{ messages.likes }}</h4>
 		    </div>
-		    <div class="display_text">{{ messages.text }}</div>
+		    <div class="display">
+		    	<p class="display_text">{{ messages.text }}</p>
+		        <p class="display_date">{{ messages.created }}</p>
+		    </div>
 		    <div class="comments">
 		        {% if comments[messages.key().id()] %}
-		        <h3>Comment:</h3>
+		        <h4 class="section_title">Comment:</h4>
 		    	{% for b in comments[messages.key().id()]: %}
-		    	<h4 class="comment title">{{ b.commenter }}</h4>
-		    	<h4 class="comment time">{{ b.created }}</h4>
-		    	<p class="comment text">{{ b.text }}</p>
+		    	<div class="row">
+		    		<p class="comment_text">{{ b.commenter }}: &nbsp;</p>
+		    		<p class="comment_text">{{ b.text }}</p>
+		    	</div>		    	
+		    	<h4 class="display_date">{{ b.created }}</h4>
+
 		    	{% endfor %}
 		    	{% endif %}
 		    </div>

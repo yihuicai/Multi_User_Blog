@@ -43,13 +43,13 @@ class SignUp(Handler):
                 
         # push in the database and render the html
         if username and  password1 and string1=="" and string2=="" and string3=="":
-            password1=self.make_pw_hash(username,password1)
+            password2=self.make_pw_hash(username,password1)
             ac=Account(username=username, 
-                       password=password1, 
+                       password=password2, 
                        email=email)
             ac.put()
             # define and send cookie
-            self.set_cookie(username, password1)
+            self.set_cookie(username, password2)
             self.redirect("/blog/welcome")
 
         else:
