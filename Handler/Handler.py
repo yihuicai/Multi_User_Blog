@@ -34,10 +34,12 @@ class Handler(webapp2.RequestHandler):
             #messages=db.GqlQuery("SELECT * FROM Message ORDER BY created DESC LIMIT 10")
 
         #self.render("result.html",  user=user, messages=messages )
-
+    def init_account(self):
+        return
     def init_comment(self):
-        init=Comment(blog_id=" ", commenter=" ", text=" ")
-        init.put()
+        #init=Comment(blog_id=" ", commenter=" ", text=" ")
+        #init.put()
+        return
     def check_exist(self):
         user_exist=db.GqlQuery("SELECT * FROM Account ORDER BY created DESC")
         return user_exist
