@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1> New Comment to {{ original_post.title }}</h1>
 <div class="orignal">
-    <h3>{{ original_post.title }}</h3>
+    <h4 class="display_title">{{ original_post.title }}</h4>
     <p> {{ original_post.text }} </p>
 </div>
 
 <form method="post">
 
 	<label>
-	    <h3>Comment: </h3>
+	    <h3 class="section_title">Comment: </h3>
 	    <textarea name="text" value={{ text }}></textarea>
 	</label>
 	<input type="submit">

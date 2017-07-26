@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2> Edit Comment </h2>
+<h3> Edit Comment </h3>
 <div class="orignal">
     <h4>{{ original_post.title }}</h4>
     <p> {{ original_post.text }} </p>
@@ -10,9 +10,9 @@
 <form method="post">
 
 	<label>
-	    <h4>Comment: </h4>
-	    <p>Old Text: {{ old_text }}</p>
-	    <h4> New Text:</h4>
+	    <h4 class="section_title">Comment: </h4>
+	    <p class="commenter">{{ old_text }}</p>
+	    <h4 class="section_title"> New Text:</h4>
 	    <textarea name="text" value={{ old_text }}></textarea>
 	</label>
 	<input type="submit">

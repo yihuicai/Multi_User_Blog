@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>New Blog</h2>
+<h3>New Blog</h3>
 
     <form method="post">
 	<label>
-	    <h4>Title: </h4>
+	    <h4 class="section_title">Title: </h4>
 	    <input type="text" name="subject" value={{subject}}>
 	</label>
 	<label>
-	    <h4>Message: </h4>
+	    <h4 class="section_title">Message: </h4>
 	    <textarea name="content" value={{content}}></textarea>
 	</label>
 	<input type="submit">

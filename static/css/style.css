@@ -1,5 +1,7 @@
 body {
-	display: inline-flex;
+	display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+	display: flex;
 	flex-wrap: wrap;
 	font-family: "Lato", serif;
 	font-weight: 300;
@@ -9,41 +11,50 @@ body {
 
 header {
 	width: 100%;
-	display: inline-flex;
+	display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+	display: flex;
 	flex-wrap: wrap;
 	border-bottom: solid 1px grey;
 }
 
+a {
+	margin: auto 5px;
+}
+
 .profile {
 	margin: 10px;
-	width: 30%;
+	width: 40%;
+	display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
 	display: flex;
 	flex-wrap: wrap;
 	text-align: center;
 }
 
 img {
-	width: 60px;
-	height: 50px;
+	width: 55px;
+	height: 45px;
 	padding: auto 10px;
 	display: block;
-	margin: 0;
+	margin: 2px;
 }
 
 .links {
 	width: 50%;
+	display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .link {
+	margin: auto 10px;
 	display: block;
 	text-align: center;
-	margin: auto;
 }
 
 .title {
-	font-size: 36px;
 	display: block;
 	width: 30%;
 	margin:auto;
@@ -57,6 +68,10 @@ img {
 	margin: auto;
 }
 
+textarea {
+	width: 500px;
+	height: 200px;
+}
 
 main {
 	max-width:1000px;
@@ -66,13 +81,24 @@ main {
 }
 
 .row {
+	display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 }
+.blogi {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #e6e6e6;
+}	
 
 .blog {
-	background-color: #fffff0;
 	padding: 5px;
 	width: 100%;
 	display: flex;
@@ -92,8 +118,9 @@ main {
 	width: 100%;
 }
 .display_title {
-	width: 66%;
-	text-align: center;
+	margin-left: 4px;
+	width: 55%;
+	text-align: left;
 	display: block;
 }
 .display {
@@ -102,22 +129,30 @@ main {
 	margin: auto;
 }
 .display_date {
-	font-size: 0.7em;
+	color: grey;
+	font-size: 0.8em;
 }
 .display_text {
-
 	width: 100%;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-weight: 500;
 }
+.commenter{
+	padding: 0 0 0 20px;
+	font-weight: 500;
+	color: grey;
+	font-size: 1em;
+	display: block;
+}
 .comment_text{
-	font-size: 0.8em;
+	font-size: 1em;
+	font-weight: 500;
 	display: block;
 }
 
 .author {
 	text-align: left;
-	width: 15%;
+	width: 20%;
 	display: block;
 	color: grey;
 }
