@@ -11,11 +11,13 @@
 <body>
     <header>
         <img src="https://c1.staticflickr.com/9/8105/8628115562_1b1b00d1bd_b.jpg" alt="logo">
-    	<h2 class="title">Alan's PTT</h2>
+    	<div class="title">Alan's PTT</div>
+        <div class="headlinks">
+            <a href="/blog">All blogs</a>
             <a href="/blog/newpost">New post</a>
-            <a href="/blog">All blogs</a>              
+        </div>        
         <div class="profile">
-    	    <h3 class="user"> welcome, {{ user }} </h3>
+    	    <div class="user"> welcome, {{ user }} </div>
             {% if user=="guest" or user=="" %}
             <div class="links">
     	       <a href="/blog/login" class="link">Login</a>

@@ -4,31 +4,32 @@
     {% if error %}
     <h4 style="color: red">{{ error }}</h4>
     {% endif %}
-	<div class="display_blog row">
+	<div class="row">
 	    {% if messages: %}
 		{% for message in messages: %}
 		<div class="blog">
 		    <div class="blogi">
-		    	<h3 class="display_title">{{ message.title }}</h3>
+		    	<h4 class="display_title">{{ message.title }}</h4>
 		    	<h4 class="author">Author: {{ message.author }}</h4>
-		    	<h4 class="author"> liked by: {{ message.likes }}</h4>
+		    	<h4 class="likedby"> liked by: {{ message.likes }}</h4>
 		    </div>
 		    <div class="display">
 		        <p class="display_text">{{ message.text }}</p>
 		        <p class="display_date">{{ message.created }}</p>
 		        <div class="row">
-		            <form method="get" class="edit">
-		                <button type="submit" class="editit" formaction="blog/edit/{{ message.key().id() }}">edit</button>
-		            </form>
 		            <form method="post" class="like">
 		                <button type="submit" class="likeit" name="like" formaction="/blog" value="{{ message.key().id() }}">like</button>
 		                <button type="submit" class="deleteit" name="delete" formaction="/blog" value="{{ message.key().id() }}">delete</button>
+		            </form>
+		            <form method="get" class="edit">
+		                <button type="submit" class="editit" formaction="blog/edit/{{ message.key().id() }}">edit</button>
+		                <button formaction="/blog/newcomment/{{ message.key().id() }}">Add New Comment</button>
 		            </form>
 		        </div>
 		    </div>  
 		</div>
 		<div class="comments">
-		    <h4 class="section_title">Comment:</h4>
+		    <h4 class="section_title">Comments:</h4>
 		    {% for comment in comments[message.key().id()]: %}
 		    <div class="row">
 		    	<p class="commenter">{{ comment.commenter }}: &nbsp;</p>
@@ -45,7 +46,6 @@
 		    </div>
 		    	{% endfor %}
 		    <br>
-		    <a href="/blog/newcomment/{{ message.key().id() }}">Add New Comment</a>
 		</div>
 		{% endfor %}
 		{% endif %}

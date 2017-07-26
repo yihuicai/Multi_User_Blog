@@ -5,6 +5,7 @@ body {
 	flex-wrap: wrap;
 	font-family: "Lato", serif;
 	font-weight: 300;
+	letter-spacing: 0.5px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -16,15 +17,22 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	border-bottom: solid 1px grey;
+	margin-bottom: 20px;
 }
 
 a {
-	margin: auto 5px;
+	margin: 5px;
+	color: grey;
+	font-size: 0.9em;
+	padding: 5px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 300;
 }
 
 .profile {
-	margin: 10px;
-	width: 40%;
+	margin: auto;
+	width: 270px;
 	display: -webkit-flex;
     -webkit-flex-wrap: wrap;
 	display: flex;
@@ -40,8 +48,14 @@ img {
 	margin: 2px;
 }
 
+.headlinks{
+	width: 180px;
+	text-align: center;
+	margin: auto;
+}
+
 .links {
-	width: 50%;
+	width: 55%;
 	display: -webkit-flex;
     -webkit-flex-wrap: wrap;
 	display: flex;
@@ -49,33 +63,43 @@ img {
 }
 
 .link {
-	margin: auto 10px;
+	padding: auto 10px;
 	display: block;
 	text-align: center;
 }
 
 .title {
 	display: block;
-	width: 30%;
-	margin:auto;
+	font-weight: 300;
+	font-size: 1.5em;
+	width: 200px;
+	min-width: 115px;
+	margin: auto;
 	text-align: center;
 }
 
 .user {
+	font-size: 0.9em;
+	font-weight: 500;
 	display: block;
-	width: 50%;
+	width: 40%;
 	text-align: center;
 	margin: auto;
+	padding-right: 5px;
+}
+
+.input_title{
+	width: 80%;
 }
 
 textarea {
-	width: 500px;
+	width: 80%;
 	height: 200px;
 }
 
 main {
-	max-width:1000px;
-	width: 80%;
+	max-width:1200px;
+	width: 90%;
 	margin: auto;
 	min-width: 300px;
 }
@@ -87,6 +111,12 @@ main {
 	flex-wrap: wrap;
 	width: 100%;
 }
+
+h4 {
+	-webkit-margin-before: 0.6em;
+	-webkit-margin-after: 0.6em;
+}
+
 .blogi {
 	margin: 0;
 	padding: 0;
@@ -110,8 +140,8 @@ main {
 	display: block;
 }
 .like {
-	width: 50%;
 	display: block;
+	margin-right: 5px;
 }
 .section_title {
 	display: block;
@@ -119,7 +149,8 @@ main {
 }
 .display_title {
 	margin-left: 4px;
-	width: 55%;
+	width: 40%;
+	min-width: 150px;
 	text-align: left;
 	display: block;
 }
@@ -130,16 +161,16 @@ main {
 }
 .display_date {
 	color: grey;
-	font-size: 0.8em;
+	font-size: 0.6em;
 }
 .display_text {
 	width: 100%;
-	font-size: 1.1em;
+	font-size: 1em;
 	font-weight: 500;
 }
 .commenter{
 	padding: 0 0 0 20px;
-	font-weight: 500;
+	font-wei1ht: 500;
 	color: grey;
 	font-size: 1em;
 	display: block;
@@ -153,13 +184,23 @@ main {
 .author {
 	text-align: left;
 	width: 20%;
+	margin: auto 15px;
+	min-width: 120px;
+	display: block;
+	color: grey;
+}
+.likedby {
+	text-align: left;
+	width: 30%;
+	min-width: 120px;
 	display: block;
 	color: grey;
 }
 
 .comments {
 	width: 100%;
-	margin: 5px 0;
+	margin: 5px 0 10px 0;
 	padding: 5px;
-	border-bottom: solid 2px grey;
+	padding-bottom: 15px;
+	border-bottom: solid 1px grey;
 }
