@@ -15,7 +15,7 @@
 		    </div>
 		    <div class="display">
 		        <p class="display_text">{{ message.text }}</p>
-		        <p class="display_date">{{ message.created }}</p>
+		        <p class="display_date">{{ message.created.replace(tzinfo=pytz.timezone('UTC')).astimezone(pytz.timezone('US/Pacific')).strftime("%Y-%m-%d %H:%M:%S") }}</p>
 		        <div class="row">
 		            <form method="post" class="like">
 		                <button type="submit" class="likeit" name="like" formaction="/blog" value="{{ message.key().id() }}">like</button>
@@ -35,7 +35,7 @@
 		    	<p class="commenter">{{ comment.commenter }}: &nbsp;</p>
 		    	<p class="comment_text">{{ comment.text }}</p>
 		    </div>
-		    <p class="display_date">{{ comment.created }}</p>
+		    <p class="display_date">{{ comment.created.replace(tzinfo=pytz.timezone('UTC')).astimezone(pytz.timezone('US/Pacific')).strftime("%Y-%m-%d %H:%M:%S") }}</p>
 		    <div class="row">
 		    	<form method="get">
 		    		<button type="submit" class="editit" formaction="blog/editcomment/{{ comment.key().id() }}">edit</button>

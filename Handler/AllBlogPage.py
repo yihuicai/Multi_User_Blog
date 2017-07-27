@@ -1,4 +1,8 @@
 from Handler import Handler
+from datetime import datetime, timedelta
+import pytz
+from pytz import timezone
+
 from google.appengine.ext import db
 from Model.Comment import Comment
 from Model.Message import Message
@@ -9,12 +13,17 @@ class AllBlogPage(Handler):
         messages=db.GqlQuery("SELECT * FROM Message ORDER BY created DESC LIMIT 10")
         comments={}
         for message in messages:
+            '''
+            tz=pytz.timezone('US/Eastern')
+            print(tz)
+            message.created=message.created.replace(tzinfo=tz)
+            '''
             q_s=str(message.key().id())
             q_i=message.key().id()
             comment=db.GqlQuery("SELECT * FROM Comment WHERE blog_id='%s' ORDER BY created DESC"%q_s)
             comments[q_i]=comment
         
-        self.render("result.html", user = user, messages=messages, comments=comments, error="")
+        self.render("result.html", user = user, messages=messages, comments=comments, error="", pytz=pytz, strftime=datetime.strftime)
         
     def post(self):
         user=self.check_login()
@@ -59,4 +68,4 @@ class AllBlogPage(Handler):
             comment=db.GqlQuery("SELECT * FROM Comment WHERE blog_id = '%s' ORDER BY created DESC"%q)
             comments[q]=comment
             
-        self.render("result.html", user = user, messages=messages, comments=comments, error=error)
+        self.render("result.html", user = user, messages=messages, comments=comments, error=error, pytz=pytz)
